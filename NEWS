@@ -1,0 +1,118 @@
+CHANGES IN VERSION 3.4
+------------------------
+
+    o Added argument 'downloadFile' to fea_david() to choose whether to save the analysis results to the current directory
+    o DAVID now requires https. This causes errors in some systems. A (hopefully) temporary solution is to install some certificates locally. 
+      See RDAVIDWebService help: https://support.bioconductor.org/p/70090/#72226
+    
+CHANGES IN VERSION 3.2
+------------------------
+NEW FEATURES
+
+    o HTML vignette
+    o Bipartite network: Nodes are now circles and squares (only available for "static" plot)
+    o PlotGoAncestors: added argument nCharTerm
+    o clustersDistance: added argument 'clustMethod' and set "average" as default clustering method.
+    o GO evidence: Added argument to fea_topGO (new data object available: GOEvidenceCodes)
+    o Added argument vExprColors to functionalNetwork.
+    o Vertex size now allows to set a value for each gene.
+    
+BUGFIXES
+    o fea2incidMat: filter negative values
+
+CHANGES IN VERSION 3.0
+------------------------
+
+NEW FEATURES
+
+    o Graphical User Interface (GUI)
+    o New FEA tools: topGO and GAGE (GSEA)
+    o Plot gene expression (up/down) in the functional networks (Available since devel. version 2.1)
+    o plotGoAncestors, plotKegg
+
+INTERFACE CHANGES 
+
+    o Functions renamed or replaced:
+    o toMatrix/adjMatrix: fea2incidMat
+    o plotMetagroupsDistance: clusterDistance
+    o query_gtLinker & getResults_gtLinker: fea_gtLinker & fea_gtLinker_getResults
+    o query_david & getResults_david: fea_david & format_david
+    o report_gtLinker & report_david: FGNet_report
+    o intersectionNetwork: is now included in functionalNetwork
+
+CHANGES IN VERSION 2.1
+------------------------
+
+NEW FEATURES
+
+    o Expression in functionalNetwork: It is now possible to plot gene expression (up/down) in the network.
+    o plotGoAncestors: New function.
+    o report: Added option to show only the most specific GO terms (tree leaves: terms at the bottom of the ontology). Kegg pathway plot can now be plotted and saved locally.
+    o Added p-value stats to clusters matrix.
+    o Side colors added to metagroups heatmap.
+    o toMatrix: added argument sepChar, legendPrefix and filterOperator. Attribute and threshold renamed to filterAttribute and filterThreshold.
+    o functionalNetwork: added arguments plotIntersectionNetwork,plotTitleSub.
+    o getResults_gtLinker: added argument organism (adds the prefix to kegg id).
+    o getResults_david: inputFileLocation renamed to fileName
+    
+BUG FIXES
+
+    o GO ontology plot: now done locally through plotGoAncestors.
+    o toMatrix: Accepts characters in cluster column (provides more flexibility with non-clustered/modular FEA and support to build term-term and term-genes networks). Arguments: legendMg renamed to legendText.   
+
+CHANGES IN VERSION 2.0
+------------------------
+
+NEW FEATURES
+
+    o The networks can now be plotted for terms in addition to genes.
+    o In the report, clicking on the plots allows to see the plot at full size next to the terms table (if the screen resolution allows it).
+    o ToMatrix(): Added arguments 'key' (to choose either genes or terms) and 'removeFiltered' terms. Renamed main argument (geneTermSets) to 'results'.
+    o IntersectionNetwork() shows a warning if there is no intersection. Added argument 'plotAllMg' to allow choosing wether to plot unconnected metagroups or not.
+    o FunctionalNetwork() changed the two main arguments to a single one, which is the raw output from toMatrix() (a list with names: c("metagroupsMatrix", "gtSetsMatrix", "filteredOut")). Added arguments: 'eColor' to provide the edges color, and 'weighted' to draw the edge width according to the number of shared gene-term sets.
+    o Reports: Added argument 'downloadGOtree' to allow choosing wether to download the go term trees png (slower) or just provide the link to the web tool.
+    
+BUG FIXES
+
+    o functionalNetwork() now correctly  writes either "cl" or "mg" in the legend.
+
+CHANGES IN VERSION 1.3.1
+------------------------
+
+NEW FEATURES
+
+    o adjMatrix() has been renamed to toMatrix()
+    o GO png trees are now automatically downloaded when generating the report
+    o functionalNetwork: metagroup/cluster legend order has been changed to alphabetical
+    
+BUG FIXES
+
+    o Minor bug fixes
+    
+CHANGES IN VERSION 1.2
+------------------------
+
+NEW FEATURES
+
+    o Query David through web service (RDAVIDWebService): Avoids limitations of API interface
+    o Added argument KeepColors to functionalNetwork and intersectionNetwork: Keeps the same color for each group even if some are filtered out. 
+    o Added argument geneLabels to getResults_david: Allows to replace the IDs for a gene name/symbol in the plots
+    
+BUG FIXES
+
+    o Minor bug fixes
+    
+CHANGES IN VERSION 1.1.1
+------------------------
+
+BUG FIXES
+
+    o query_david: Checks whether the server accepted the query
+    o MAN pages using query_david: Reduced yeast example to 15 genes. In windows, with the whole gene list, the server returns "Error: Expectation failed".
+    
+CHANGES IN VERSION 1.0.0
+------------------------
+
+NEW FEATURES
+
+    o Package released
