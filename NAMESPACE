@@ -1,0 +1,38 @@
+export(FGNet_GUI)
+export(FGNet_report)
+
+export(fea_gtLinker)
+export(fea_gtLinker_getResults)
+export(fea_david)
+export(fea_gage)
+export(fea_topGO)
+
+export(format_david)
+export(format_results)
+export(readGeneTermSets)
+
+export(fea2incidMat)
+export(functionalNetwork)
+export(clustersDistance)
+export(analyzeNetwork)
+
+export(getTerms)
+export(plotGoAncestors)
+export(keywordsTerm)
+export(plotKegg)
+ 
+import(igraph)
+import(png)
+
+importFrom(R.utils, capitalize)
+importFrom(R.utils, decapitalize)
+importFrom(XML, xmlToDataFrame)
+importFrom(plotrix, color.scale)
+importFrom(reshape2, melt)
+importFrom(RColorBrewer, brewer.pal)
+
+importFrom(hwriter,hwrite)
+importFrom(hwriter,hwriteImage)
+importFrom(hwriter,openPage)
+importFrom(hwriter,closePage)
+
